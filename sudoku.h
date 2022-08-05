@@ -1,3 +1,5 @@
+#ifndef sudoku_h
+#define sudoku_h
 #include <stdbool.h>
 
 // Sudoku: provides a Sudoku puzzle ADT.
@@ -76,5 +78,5 @@ int erase_cell(struct sudoku *s, int row, int col);
 // requires: row and col are valid pointers.
 // effects:  mutates *row and *col
 int next_cell(const struct sudoku *s, int *row, int *col);
-
+#endif
 

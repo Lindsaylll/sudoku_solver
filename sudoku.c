@@ -90,6 +90,7 @@ int fill_cell(struct sudoku *s, int row, int col, int num) {
     }
     ++i;
   }
+  s->sol[row*9+col] = num;
   return 0;
 }
 

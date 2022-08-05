@@ -1,9 +1,12 @@
 
-// #include "cs136-trace.h"
+#include "trace.h"
 #include "solve.h"
 #include <stdio.h>
 #include "sudoku.h"
+
 #include "array.h"
+
+const int INVALID_SYMBOL;
 
 int main(void) {
   printf("Welcome to ASCII sudoku!\n");
@@ -19,6 +22,8 @@ int main(void) {
     }
 
     int cmd = read_symbol();
+    // printf("cmd is: %d\n", cmd);
+    // printf("lookup_symbol is: %d\n", lookup_symbol("bye"));
     if (cmd == lookup_symbol("bye")) {
       printf("Goodbye!\n");
       break;
@@ -39,6 +44,7 @@ int main(void) {
         printf("Error putting %d in the cell (%d,%d)\n", num, row, col);
       } else {
         printf("Successfully put %d in the cell (%d, %d)\n", num, row, col);
+        // (s->sol)[row*9 + col] = num;
       }
     } else if (cmd == lookup_symbol("erase")) {
       int row = 0;
@@ -94,3 +100,34 @@ int main(void) {
 
   sudoku_destroy(s);
 }
+
+
+
+
+/*
+int main(){
+  printf("Welcome to ASCII sudoku!\n");
+
+  struct sudoku *s = read_sudoku();
+  print_sol(s);
+
+  // while (1) {
+    // stop if puzzle is solved.
+    if (solved_puzzle(s)) {
+      printf("Congratulations!  You solved the puzzle!\n");
+      // break;
+    }
+    int cmd = read_symbol();
+    if (cmd == lookup_symbol("bye")) {
+      printf("Goodbye!\n");
+      // break;
+    } else if (cmd == lookup_symbol("reset")) {
+      reset_sol(s);
+    }else{
+      printf("else\n");
+    }
+
+  // }
+  printf("here is out\n");
+  return 0;
+}*/

@@ -1,5 +1,9 @@
+#ifndef solve_h
+#define solve_h
+
 #include <stdbool.h>
 #include "sudoku.h"
+
 
 
 // solve(s) solves the Sudoku puzzle by search and backtracking.  
@@ -11,3 +15,5 @@
 // bool solveCol(struct sudoku *s);
 // bool soveCell(struct sudoku *s);
 bool solve(struct sudoku *s);
+
+#endif 
