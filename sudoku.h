@@ -78,5 +78,6 @@ int erase_cell(struct sudoku *s, int row, int col);
 // requires: row and col are valid pointers.
 // effects:  mutates *row and *col
 int next_cell(const struct sudoku *s, int *row, int *col);
+int unsigned_cell(const struct sudoku *s, int *row, int *col);
 #endif
 

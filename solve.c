@@ -7,19 +7,53 @@
 //   int sol[81];
 // };
 
+// int solveSudoku(int grid[N][N], int row, int col)
+// { if (row == N - 1 && col == N)
+//         return 1;
+
 bool solve(struct sudoku *s)
 {
+    printf("in solve\n");
 
-    while (!solved_puzzle(s))
+    int row, col;
+    if (!solved_puzzle(s))
     {
-        printf("in solving\n");
+        if (unsigned_cell(s, &row, &col) == -4)
+        {
+            printf("cannot find unsigned_cell\n");
+            return false;
+        }
+    }
+    else
+    {
+        return true;
+    }
 
-        int row, col;
+    // while (!solved_puzzle(s))
+    // {
+    // printf("in solving\n");
+
+    for (int num = 1; num <= 9; num++)
+    {
+        if (fill_cell(s, row, col, num) == 0)
+        {
+            s->sol[row * 9 + col] = num;
+            if (solve(s))
+            {
+                return true;
+            }
+            else
+            {
+                erase_cell(s, row, col);
+            }
+        }
+
+        /*int row, col;
         int rv = next_cell(s, &row, &col);
         if (rv < 0)
         {
             // printf("Could not find a cell with only one possible value\n");
-            reset_sol(s);
+            // reset_sol(s);
             return false;
         }
         else
@@ -30,25 +64,26 @@ bool solve(struct sudoku *s)
             if (num_choices == 0)
             {
                 printf("No possible value for cell (%d,%d)\n", row, col);
-                reset_sol(s);
+                // reset_sol(s);
                 return false;
             }
             else if(num_choices == 1)
             {
                 printf("Cell (%d,%d) could have values", row, col);
                 print_array(choices, num_choices);
-                fill_cell(s,  row,  col,  choices[0]);
+                // fill_cell(s,  row,  col,  choices[0]);
+                s->sol[row*9+col] = choices[0];
                 continue;
 
             } else{
                 printf("To many choices for (%d,%d), could not decide one \n", row, col);
-                reset_sol(s);
+                // reset_sol(s);
                 return false;
             }
-            
-        }
+
+        } */
     }
-    return true;
+    return false;
 }
 // every row
 // for (int i = 0; i < 9; ++i)

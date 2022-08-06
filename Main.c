@@ -44,7 +44,7 @@ int main(void) {
         printf("Error putting %d in the cell (%d,%d)\n", num, row, col);
       } else {
         printf("Successfully put %d in the cell (%d, %d)\n", num, row, col);
-        // (s->sol)[row*9 + col] = num;
+        (s->sol)[row*9 + col] = num;
       }
     } else if (cmd == lookup_symbol("erase")) {
       int row = 0;
