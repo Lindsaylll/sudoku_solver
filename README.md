@@ -1,7 +1,9 @@
 # Welcome Play Sudoku Here
 
 ## To boost the game:
+``` Bash
 ./sudoku 
+```
 
 ## Input a 9 * 9 unsolved sudoku. 
 ## eg: 
@@ -18,27 +20,41 @@
 
 ## It has functions: fill, hint, choices, reset, erase, solve, print. 
 ### Try solve the Sudoku yourselves:
-$>       fill [row] [col] num
+``` Bash
+fill [row] [col] num
+```
     
 ### "hint" will display a cell that only has one possible answer:
-$>       hint
+``` Bash
+hint
+```
     
 ### When there is not a cell that with only one possible answer, try use "choices":
-$>       choices [row] [col]
+``` Bash
+choices [row] [col]
+```
 ### this shows all possilbe answers for this cell.
 
 ### Fill something wrong? Don't worry about it, use "erase" to erase a anser:
-$>       erase [row] [col]
+``` Bash
+erase [row] [col]
+```
   
 ### Or just "reset" the Sudoku:
-$>       reset
+``` Bash
+reset
+```
 
 ### You might want to look at the current state use "print":
-$>       print 
+``` Bash
+print 
+```
     
 ### Unalbe to solve it? :(  
 ### Do not worry let it solve it for you:
-$>       solve
+``` Bash
+solve
+```
 
 
 
